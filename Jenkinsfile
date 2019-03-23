@@ -6,8 +6,8 @@ def HTTP_PORT="8090"
 node {
 
     stage('Initialize'){
-        def dockerHome = tool 'LocalDocker'
-        def mavenHome  = tool 'LocalMaven'
+        def dockerHome = tool 'myDocker'
+        def mavenHome  = tool 'myMaven'
         env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
     }
 
@@ -28,7 +28,7 @@ node {
      }
 
     stage("Image Prune"){
-        imagePrune(CONTAINER_NAME, CONTAINER_TAG)
+        imagePrune(CONTAINER_NAME)
     }
 
     stage('Image Build'){
