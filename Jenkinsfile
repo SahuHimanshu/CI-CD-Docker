@@ -1,6 +1,6 @@
 def CONTAINER_NAME="jenkins-pipeline"
 def CONTAINER_TAG="latest"
-def DOCKER_HUB_USER="pkw0301"
+def DOCKER_HUB_USER="sahudockerhimanshu"
 def HTTP_PORT="8090"
 
 node {
@@ -28,7 +28,7 @@ node {
      }
 
     stage("Image Prune"){
-        imagePrune(CONTAINER_NAME)
+        imagePrune(CONTAINER_NAME, CONTAINER_TAG)
     }
 
     stage('Image Build'){
